@@ -1,0 +1,52 @@
+// 3rd-party Plugins
+
+@import "~perfect-scrollbar/css/perfect-scrollbar.css";
+
+// Theme Styles
+//@import "./_template/_assets/sass/style.react.scss";
+
+// Default Layout Skins
+//@import "./_template/_assets/sass/global/layout/header/skins/base/light.scss";
+
+// Header Skins
+// .kt-header-base-light {
+//     @import "./_template/_assets/sass/global/layout/header/skins/base/light.scss";
+// }
+
+// Web Icon fonts
+// @import "~socicon/css/socicon.css";
+// @import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+
+@-webkit-keyframes fadeInUpContent {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -5%, 0);
+    transform: translate3d(0, -5%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInUpContent {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -5%, 0);
+    transform: translate3d(0, -5%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInUpContent {
+  -webkit-animation-name: fadeInUpContent;
+  animation-name: fadeInUpContent;
+}

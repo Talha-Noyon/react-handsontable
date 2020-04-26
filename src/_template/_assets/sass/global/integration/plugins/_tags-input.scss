@@ -1,0 +1,56 @@
+//
+// Tags Input
+//
+
+
+
+
+// Base
+.react-tagsinput {
+    background-color: kt-get($kt-state-colors, light, base);
+    border: 1px solid #dee2e6;
+    overflow: hidden;
+    padding: 0px;
+    border-radius: 0;
+    @include font-size($input-font-size);
+}
+
+.react-tagsinput--focused {
+    border-color: lighten(kt-state-color(brand, base), 12%);
+}
+
+.react-tagsinput-tag {
+    background-color: kt-brand-color();
+    border-radius: 2px;
+    border: 1px solid kt-get($kt-state-colors, primary, base);
+    color: kt-get($kt-state-colors, light, base);
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    margin: 5px;
+    padding: 5px;
+}
+
+.react-tagsinput-remove {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.react-tagsinput-tag a::before {
+    content: " ×";
+}
+
+.react-tagsinput-input {
+    background: transparent;
+    border: 0;
+    color: #777;
+    @include font-size($input-font-size);
+    font-weight: 400;
+    margin-bottom: 6px;
+    margin-top: 1px;
+    outline: none;
+    padding: 5px;
+    width: 180px;
+}
+

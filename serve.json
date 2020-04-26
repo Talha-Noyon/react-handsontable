@@ -1,0 +1,15 @@
+{
+  "public": "_site",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/template/preview/react"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/template/preview/react/**",
+      "destination": "/template/preview/react/index.html"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+//
+// Global Components And 3rd-party Plugin Customizations
+//
+
+
+
+// 3rd-party plugins customizations
+@import "integration/plugins/perfect-scrollbar";
+@import "integration/plugins/dropzone";
+@import "integration/plugins/fontawesome5";
+@import "integration/plugins/sweetalert2";
+@import "integration/plugins/quill";
+@import "integration/plugins/tagify";
+@import "integration/plugins/tinymce";
+@import "integration/plugins/ckeditor";
+@import "integration/plugins/kanban";
+@import "integration/plugins/tags-input";
+
+
+@import "components/widgets/general/profile-1";
+@import "components/widgets/general/profile-2";
+@import "components/widgets/general/profile-3";
+@import "components/widgets/general/profile-4";
+@import "components/widgets/general/users";
+@import "components/widgets/general/project-1";
