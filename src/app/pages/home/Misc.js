@@ -7,9 +7,26 @@ import Handsontable from 'handsontable';
 import "bootstrap/scss/bootstrap.scss";
 const TestTask = (props) => {
     let hotTableComponent = createRef();
-    const [fileUploaded,setFileUploaded] = useState([]);
+    const [fileUploaded,setFileUploaded] = useState([
+        /*[1, "Joe", "Fabiano", "0.0.0.1", "Joe.Fabiano@ex.com"],
+        [2, "Fred", "Weclersdd", "0.0.0.1", "Fred.Weclerx@ex.com"],
+        [3, "Steve", "Wilson", "0.0.0.1", "Steve.Wilson@ex.com"],
+        [4, "Maria", "Fernandez", "0.0.0.1", "M.Fernandez@ex.com"],
+        [5, "Pierre", "Barbault", "0.0.0.1", "Pierre.Barbault@ex.com"],
+        [6, "Nancy", "Moore", "0.0.0.1", "Nancy.Moore@ex.com"],
+        [7, "Barbara", "MacDonald", "0.0.0.1", "B.MacDonald@ex.com"]*/
+    ]);
+    const [emailListFromDB,setEmailListFromDB] = useState([
+        "Joe.Fabiano@ex.com",
+        "Fred.Weclerx@ex.com",
+        "Steve.Wilson@ex.com",
+        "M.Fernandez@ex.com",
+        "Pierre.Barbault@ex.com",
+        "Nancy.Moore@ex.com",
+        "B.MacDonald@ex.com"
+    ]);
     const arrayColumn = (arr, n) => arr.map(x => x[n]);
-    useEffect((res) => {
+    useEffect(() => {
         if (Object.keys(fileUploaded).length > 0) {
             console.log("if fileUploaded \n", fileUploaded);
         }
@@ -29,26 +46,19 @@ const TestTask = (props) => {
 
                 /* Convert array to json*/
                 const dataParse = XLSX.utils.sheet_to_json(ws, {header:1});
-
-                //console.log(arrayColumn(dataParse,4));
                 hotTableComponent.current.hotInstance.loadData(dataParse);
-                setFileUploaded(dataParse);
+
+                //hotTableComponent.current.hotInstance.getSettings();
+                //console.log(hotTableComponent.current.hotInstance);
+                setFileUploaded([...dataParse]);
             };
             reader.readAsBinaryString(file);
         }
 
     }
     const id = 'hot';
-    const emailListFromDB = [
-        "Joe.Fabiano@ex.com",
-        "Fred.Weclerx@ex.com",
-        "Steve.Wilson@ex.com",
-        "M.Fernandez@ex.com",
-        "Pierre.Barbault@ex.com",
-        "Nancy.Moore@ex.com",
-        "B.MacDonald@ex.com"
-    ]
-    const people = [
+
+    /*const people = [
         [1, "Joe", "Fabiano", "0.0.0.1", "Joe.Fabiano@ex.com"],
         [2, "Fred", "Weclersdd", "0.0.0.1", "Fred.Weclerx@ex.com"],
         [3, "Steve", "Wilson", "0.0.0.1", "Steve.Wilson@ex.com"],
@@ -56,13 +66,14 @@ const TestTask = (props) => {
         [5, "Pierre", "Barbault", "0.0.0.1", "Pierre.Barbault@ex.com"],
         [6, "Nancy", "Moore", "0.0.0.1", "Nancy.Moore@ex.com"],
         [7, "Barbara", "MacDonald", "0.0.0.1", "B.MacDonald@ex.com"]
-    ];
+    ];*/
     let ipValidatorRegexp = /^(?:\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b|null)$/;
     let emailValidator = function (value, callback) {
-        console.log("validation works",value)
+
         setTimeout(function(){
             if (/.+@.+/.test(value)) {
                 callback(true);
+                console.log("validation works",value)
             }
             else {
                 console.log("plz check mail format")
@@ -81,9 +92,10 @@ const TestTask = (props) => {
         manualColumnResize: true,
         manualRowResize: true,
         dropdownMenu: true,
+        className: "htCenter",
         filters: true,
         search: true,
-        data: people,
+        data: fileUploaded,
         beforeChange: function (changes, source) {
             console.log("beforeChanges");
             console.log(changes,source);
@@ -185,6 +197,7 @@ const TestTask = (props) => {
                         id={id}
                         width={1000}
                         settings={hotSettings}
+                        licenseKey='non-commercial-and-evaluation'
                     />
                 </div>
             </div>
