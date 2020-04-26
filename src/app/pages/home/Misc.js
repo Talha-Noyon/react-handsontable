@@ -115,7 +115,7 @@ const TestTask = (props) => {
                             if (/.+@.+/.test(newValue)) {
                                 if(emailListFromDB.includes(newValue)){
                                     hotTableComponent.current.hotInstance.setCellMeta(row, ...col, 'className', '')
-                                    hotTableComponent.current.hotInstance.render();
+                                    // hotTableComponent.current.hotInstance.render();
                                     console.log("email validate");
                                     let xLData = fileUploaded;
                                     xLData[row][col[0]] = newValue;
@@ -125,14 +125,14 @@ const TestTask = (props) => {
                                 }
                                 else {
                                     hotTableComponent.current.hotInstance.setCellMeta(row, ...col, 'className', 'bg-danger text-white')
-                                    hotTableComponent.current.hotInstance.render();
+                                    // hotTableComponent.current.hotInstance.render();
                                     console.log("email not in list from inner else");
                                 }
 
                             }
                             else {
                                 hotTableComponent.current.hotInstance.setCellMeta(row, ...col, 'className', 'bg-danger text-white')
-                                hotTableComponent.current.hotInstance.render();
+                                // hotTableComponent.current.hotInstance.render();
                                 console.log("email not validate from outer else");
                             }
                         }else{
